@@ -23,9 +23,14 @@ class TagsController extends Controller
 
     public function store()
     {
-        dd(
-            request()->all(),
-            // $_POST['name']
-        );
+        // dd(request()->all());
+
+        $tag = new Tag();
+
+        $tag->name = request()->name;
+
+        $tag->save();
+
+        return redirect(url('admin/tags'));
     }
 }
