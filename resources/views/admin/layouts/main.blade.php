@@ -83,6 +83,7 @@
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/5.2/examples/dashboard/dashboard.css" rel="stylesheet">
+    @stack('head')
 </head>
 
 <body>
@@ -185,7 +186,8 @@
     <script src="https://getbootstrap.com/docs/5.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+    @stack('footer')
     <script src="https://getbootstrap.com/docs/5.2/examples/dashboard/dashboard.js"></script>
 </body>
 
