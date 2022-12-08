@@ -15,4 +15,9 @@ class TagsController extends Controller
         //     'allTags' => $tags
         // ]);
     }
+
+    public function create()
+    {
+        return view('admin.tags.create');
+    }
 }

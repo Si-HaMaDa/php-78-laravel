@@ -25,3 +25,5 @@ Route::get('/', function () {
 Route::get('/admin', DashboardController::class);
 
 Route::get('/admin/tags', [TagsController::class, 'index']);
+
+Route::get('/admin/tags/create', [TagsController::class, 'create']);
