@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tags</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <a class="btn btn-sm btn-outline-primary" href="javascript:;">
+            <a class="btn btn-sm btn-outline-primary" href="{{ url('admin/tags/create') }}">
                 <span class="align-text-bottom" data-feather="plus"></span>
                 Add
             </a>

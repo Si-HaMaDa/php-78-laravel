@@ -110,31 +110,31 @@
                 <div class="position-sticky pt-3 sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/admin/" aria-current="page">
+                            <a class="nav-link active" href="{{ url('admin') }}" aria-current="page">
                                 <span class="align-text-bottom" data-feather="home"></span>
                                 Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./tags.php">
+                            <a class="nav-link" href="{{ url('admin/tags') }}">
                                 <span class="align-text-bottom" data-feather="file"></span>
                                 Tags
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./categories">
+                            <a class="nav-link" href="{{ url('admin/categories') }}">
                                 <span class="align-text-bottom" data-feather="shopping-cart"></span>
                                 Categories
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./posts.php">
+                            <a class="nav-link" href="{{ url('admin/posts') }}">
                                 <span class="align-text-bottom" data-feather="layers"></span>
                                 Posts
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./users.php">
+                            <a class="nav-link" href="{{ url('admin/users') }}">
                                 <span class="align-text-bottom" data-feather="users"></span>
                                 Users
                             </a>
