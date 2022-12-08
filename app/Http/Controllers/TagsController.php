@@ -20,4 +20,12 @@ class TagsController extends Controller
     {
         return view('admin.tags.create');
     }
+
+    public function store()
+    {
+        dd(
+            request()->all(),
+            // $_POST['name']
+        );
+    }
 }

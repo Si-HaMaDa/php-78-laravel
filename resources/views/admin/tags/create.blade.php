@@ -12,6 +12,7 @@
     </div>
     <div class="container card my-3 p-3">
         <form method="POST" action="{{ url('admin/tags/store') }}">
+            @csrf
             <div class="form-floating my-3">
                 <input class="form-control" id="name" name="name" type="text" placeholder="Name">
                 <label for="name">Name</label>
