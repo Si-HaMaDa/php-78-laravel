@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TagsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,4 @@ Route::get('/', function () {
 // });
 Route::get('/admin', DashboardController::class);
 
-Route::get('/admin/tags', function () {
-    return view('admin.tags.index');
-});
+Route::get('/admin/tags', [TagsController::class, 'index']);
