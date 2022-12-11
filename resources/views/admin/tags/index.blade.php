@@ -21,6 +21,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Created At</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,9 @@
                         <td>{{ $tag->id }}</td>
                         <td>{{ $tag->name }}</td>
                         <td>{{ $tag->created_at }}</td>
+                        <td>
+                            <a class="btn btn-sm btn-primary" href="{{ url('admin/tags/'. $tag->id .'/show') }}">Show</a>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

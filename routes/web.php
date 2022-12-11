@@ -29,3 +29,5 @@ Route::get('/admin/tags', [TagsController::class, 'index']);
 Route::get('/admin/tags/create', [TagsController::class, 'create']);
 
 Route::post('/admin/tags/store', [TagsController::class, 'store']);
+
+Route::get('/admin/tags/{id}/show', [TagsController::class, 'show']);

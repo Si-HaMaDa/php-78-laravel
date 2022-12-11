@@ -187,6 +187,18 @@
                 </div>
                 @endif
 
+                @if (session()->has('error'))
+                    <div class="alert alert-danger my-5">
+                        <p>{{ session('error') }}</p>
+                    </div>
+                @endif
+
+                @if (session()->has('success'))
+                    <div class="alert alert-success my-5">
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
+
                 @yield('content')
             </main>
         </div>

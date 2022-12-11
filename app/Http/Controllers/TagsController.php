@@ -17,6 +17,20 @@ class TagsController extends Controller
         // ]);
     }
 
+    public function show()
+    {
+        $tag = Tag::find(request()->id);
+
+        if (!$tag){
+            request()->session()->flash('error', 'Tag is not exist!');
+            return redirect(url('admin/tags'));
+        }
+
+        // $tag = Tag::findOrFail(request()->id);
+
+        return view('admin.tags.show', compact('tag'));
+    }
+
     public function create()
     {
         return view('admin.tags.create');
@@ -30,6 +44,7 @@ class TagsController extends Controller
 
         Tag::create($validated);
 
+        request()->session()->flash('success', 'Tag Created Successfully!');
         return redirect(url('admin/tags'));
     }
 }
