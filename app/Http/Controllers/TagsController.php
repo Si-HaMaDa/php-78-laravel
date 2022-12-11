@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tag;
+use Illuminate\Http\Request;
 
 class TagsController extends Controller
 {
@@ -21,15 +22,13 @@ class TagsController extends Controller
         return view('admin.tags.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        // dd(request()->all());
+        $validated = $request->validate([
+            'name' => 'required|max:50|alpha|unique:tags',
+        ]);
 
-        $tag = new Tag();
-
-        $tag->name = request()->name;
-
-        $tag->save();
+        Tag::create($validated);
 
         return redirect(url('admin/tags'));
     }
