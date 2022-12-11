@@ -31,3 +31,12 @@ Route::get('/admin/tags/create', [TagsController::class, 'create']);
 Route::post('/admin/tags/store', [TagsController::class, 'store']);
 
 Route::get('/admin/tags/{id}/show', [TagsController::class, 'show']);
+
+Route::get('/admin/tags/{id}/edit', [TagsController::class, 'edit']);
+
+Route::put('/admin/tags/{id}', [TagsController::class, 'update']);
+
+// GET
+// POST
+// PUT || PATCH
+// DELETE

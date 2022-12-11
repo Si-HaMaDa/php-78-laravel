@@ -47,4 +47,38 @@ class TagsController extends Controller
         request()->session()->flash('success', 'Tag Created Successfully!');
         return redirect(url('admin/tags'));
     }
+
+    public function edit()
+    {
+        $tag = Tag::find(request()->id);
+
+        if (!$tag){
+            request()->session()->flash('error', 'Tag is not exist!');
+            return redirect(url('admin/tags'));
+        }
+
+        // $tag = Tag::findOrFail(request()->id);
+
+        return view('admin.tags.edit', compact('tag'));
+    }
+
+    public function update (Request $request)
+    {
+        $validated = $request->validate([
+            // 'name' => 'required|max:50|alpha|unique:tags,name,' . $request->id .',id',
+            'name' => [
+                'required',
+                'max:50',
+                'alpha',
+                \Illuminate\Validation\Rule::unique('tags')->ignore($request->id),
+            ]
+        ]);
+
+        $tag = Tag::findOrFail($request->id);
+
+        $tag->update($validated);
+
+        request()->session()->flash('success', 'Tag Updates Successfully!');
+        return redirect(url('admin/tags'));
+    }
 }

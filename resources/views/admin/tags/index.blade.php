@@ -32,6 +32,7 @@
                         <td>{{ $tag->created_at }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ url('admin/tags/'. $tag->id .'/show') }}">Show</a>
+                            <a class="btn btn-sm btn-warning" href="{{ url('admin/tags/'. $tag->id .'/edit') }}">Edit</a>
                         </td>
                     </tr>
                 @endforeach
