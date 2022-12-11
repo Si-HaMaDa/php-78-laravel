@@ -36,6 +36,8 @@ Route::get('/admin/tags/{id}/edit', [TagsController::class, 'edit']);
 
 Route::put('/admin/tags/{id}', [TagsController::class, 'update']);
 
+Route::delete('/admin/tags/{id}', [TagsController::class, 'delete']);
+
 // GET
 // POST
 // PUT || PATCH

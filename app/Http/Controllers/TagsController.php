@@ -62,7 +62,7 @@ class TagsController extends Controller
         return view('admin.tags.edit', compact('tag'));
     }
 
-    public function update (Request $request)
+    public function update(Request $request)
     {
         $validated = $request->validate([
             // 'name' => 'required|max:50|alpha|unique:tags,name,' . $request->id .',id',
@@ -79,6 +79,16 @@ class TagsController extends Controller
         $tag->update($validated);
 
         request()->session()->flash('success', 'Tag Updates Successfully!');
+        return redirect(url('admin/tags'));
+    }
+
+    public function delete(Request $request)
+    {
+        $tag = Tag::findOrFail($request->id);
+
+        $tag->delete();
+
+        request()->session()->flash('success', 'Tag Deleted Successfully!');
         return redirect(url('admin/tags'));
     }
 }

@@ -33,6 +33,11 @@
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ url('admin/tags/'. $tag->id .'/show') }}">Show</a>
                             <a class="btn btn-sm btn-warning" href="{{ url('admin/tags/'. $tag->id .'/edit') }}">Edit</a>
+                            <form style="display: inline" action="{{ url('admin/tags/'. $tag->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button type="submit" class="btn btn-sm btn-danger" href="">Delete</button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
