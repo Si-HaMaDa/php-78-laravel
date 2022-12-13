@@ -15,8 +15,6 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            'name' => fake()->jobTitle(),
-        ]);
+        \App\Models\Category::factory(10)->create();
     }
 }
