@@ -22,23 +22,33 @@ Route::get('/', function () {
 // Route::get('/admin', function () {
 //     return view('admin.index');
 // });
-Route::get('/admin', DashboardController::class);
 
-Route::get('/admin/tags', [TagsController::class, 'index']);
+Route::group([
+    'prefix' => 'admin'
+], function () {
 
-Route::get('/admin/tags/create', [TagsController::class, 'create']);
+    Route::get('/', DashboardController::class);
 
-Route::post('/admin/tags/store', [TagsController::class, 'store']);
+    Route::controller(TagsController::class)->prefix('tags')->as('tags.')->group(function () {
+        Route::get('/', 'index')->name('index');
 
-Route::get('/admin/tags/{id}/show', [TagsController::class, 'show']);
+        Route::get('/create', 'create')->name('create');
 
-Route::get('/admin/tags/{id}/edit', [TagsController::class, 'edit']);
+        Route::post('/', 'store')->name('store');
 
-Route::put('/admin/tags/{id}', [TagsController::class, 'update']);
+        Route::get('/{id}', 'show')->where('id', '[0-9]+')->name('show');
 
-Route::delete('/admin/tags/{id}', [TagsController::class, 'delete']);
+        Route::get('/{id}/edit', 'edit')->name('edit');
+
+        Route::put('/{id}', 'update')->where('id', '[0-9]+')->name('update');
+
+        Route::delete('/{id}', 'destroy')->where('id', '[0-9]+')->name('destroy');
+    });
+});
 
 // GET
 // POST
 // PUT || PATCH
 // DELETE
+
+// CRUD

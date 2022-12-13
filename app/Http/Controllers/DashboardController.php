@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $y = $x + $z;
 
         return view('admin.index')->with([
-            'title' => "Dashboard",
+            'title' => __('site.dashboard'),
             'y' => $y
         ]);
     }
