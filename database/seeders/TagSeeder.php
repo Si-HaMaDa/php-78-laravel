@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 
 class TagSeeder extends Seeder
@@ -15,8 +13,6 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tags')->insert([
-            'name' => fake()->colorName(),
-        ]);
+        \App\Models\Tag::factory(10)->create();
     }
 }
