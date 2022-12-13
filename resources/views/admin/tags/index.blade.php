@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Tags</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
-            <a class="btn btn-sm btn-outline-primary" href="{{ route('tags.create') }}">
+            <a class="btn btn-sm btn-outline-primary" href="{{ route('admin.tags.create') }}">
                 <span class="align-text-bottom" data-feather="plus"></span>
                 Add
             </a>
@@ -31,9 +31,9 @@
                         <td>{{ $tag->name }}</td>
                         <td>{{ $tag->created_at }}</td>
                         <td>
-                            <a class="btn btn-sm btn-primary" href="{{ route('tags.show', $tag->id) }}">Show</a>
-                            <a class="btn btn-sm btn-warning" href="{{ route('tags.edit', $tag->id) }}">Edit</a>
-                            <form style="display: inline" action="{{ route('tags.destroy', $tag->id) }}" method="post">
+                            <a class="btn btn-sm btn-primary" href="{{ route('admin.tags.show', $tag->id) }}">Show</a>
+                            <a class="btn btn-sm btn-warning" href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
+                            <form style="display: inline" action="{{ route('admin.tags.destroy', $tag->id) }}" method="post">
                                 @csrf
                                 @method('delete')
                                 <button class="btn btn-sm btn-danger" type="submit" href="">Delete</button>

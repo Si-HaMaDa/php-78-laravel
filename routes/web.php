@@ -24,13 +24,14 @@ Route::get('/', function () {
 // });
 
 Route::group([
-    'prefix' => 'admin'
+    'prefix' => 'admin',
+    'as' => 'admin.'
 ], function () {
 
-    Route::get('/', DashboardController::class);
+    Route::get('/', DashboardController::class)->name('dashboard'); // admin.dashboard
 
     Route::controller(TagsController::class)->prefix('tags')->as('tags.')->group(function () {
-        Route::get('/', 'index')->name('index');
+        Route::get('/', 'index')->name('index'); // admin.tags.index
 
         Route::get('/create', 'create')->name('create');
 

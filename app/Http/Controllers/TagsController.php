@@ -23,7 +23,7 @@ class TagsController extends Controller
 
         if (!$tag) {
             request()->session()->flash('error', 'Tag is not exist!');
-            return redirect(route('tags.index'));
+            return redirect(route('admin.tags.index'));
         }
 
         // $tag = Tag::findOrFail(request()->id);
@@ -45,7 +45,7 @@ class TagsController extends Controller
         Tag::create($validated);
 
         request()->session()->flash('success', 'Tag Created Successfully!');
-        return redirect(route('tags.index'));
+        return redirect(route('admin.tags.index'));
     }
 
     public function edit()
@@ -54,7 +54,7 @@ class TagsController extends Controller
 
         if (!$tag) {
             request()->session()->flash('error', 'Tag is not exist!');
-            return redirect(route('tags.index'));
+            return redirect(route('admin.tags.index'));
         }
 
         // $tag = Tag::findOrFail(request()->id);
@@ -79,7 +79,7 @@ class TagsController extends Controller
         $tag->update($validated);
 
         request()->session()->flash('success', 'Tag Updates Successfully!');
-        return redirect(route('tags.index'));
+        return redirect(route('admin.tags.index'));
     }
 
     public function destroy(Request $request)
@@ -89,6 +89,6 @@ class TagsController extends Controller
         $tag->delete();
 
         request()->session()->flash('success', 'Tag Deleted Successfully!');
-        return redirect(route('tags.index'));
+        return redirect(route('admin.tags.index'));
     }
 }
