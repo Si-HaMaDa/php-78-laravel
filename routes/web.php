@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagsController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,7 +48,13 @@ Route::group([
         Route::delete('/{id}', 'destroy')->where('id', '[0-9]+')->name('destroy');
     });
 
-    Route::resource('categories', CategoryController::class);
+
+    // Route::resource('categories', CategoryController::class);
+
+    Route::resources([
+        'categories' => CategoryController::class,
+        'posts' => PostController::class
+    ]);
 });
 
 // GET
