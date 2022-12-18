@@ -20,6 +20,16 @@
             <p>{{ $post->content }}</p>
         </div>
         <div class="my-3">
+            <label>Image:</label>
+            <div>
+                @if ($post->image && \Storage::exists($post->image))
+                    <img src="{{ url('storage/' . $post->image) }}" alt="{{ $post->title }}" width="250">
+                @else
+                    <p>No Image</p>
+                @endif
+            </div>
+        </div>
+        <div class="my-3">
             <label>User ID:</label>
             <p>{{ $post->user_id }}</p>
         </div>
