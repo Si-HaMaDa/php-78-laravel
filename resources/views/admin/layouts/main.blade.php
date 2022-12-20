@@ -95,8 +95,10 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" aria-label="Search"
-            placeholder="Search">
+        <form class="w-100" method="get">
+            <input class="form-control form-control-dark w-100 rounded-0 border-0" name="search" type="text"
+                aria-label="Search" placeholder="Search" value="{{ request()->search }}">
+        </form>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
                 <a class="nav-link px-3" href="#">Sign out</a>
@@ -178,13 +180,13 @@
             </nav>
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 @if ($errors->any())
-                <div class="alert alert-danger my-5">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+                    <div class="alert alert-danger my-5">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                 @endif
 
                 @if (session()->has('error'))

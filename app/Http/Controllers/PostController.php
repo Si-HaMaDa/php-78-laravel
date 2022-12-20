@@ -17,7 +17,13 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate();
+        $posts = new Post();
+
+        if (request()->search) {
+            $posts = $posts->where('title', 'like', '%' . request()->search . '%');
+        }
+
+        $posts = $posts->paginate();
 
         return view('admin.posts.index', compact('posts'));
     }
