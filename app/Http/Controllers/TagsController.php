@@ -86,7 +86,12 @@ class TagsController extends Controller
     {
         $tag = Tag::findOrFail($request->id);
 
-        $tag->delete();
+        try {
+            $tag->delete();
+        } catch (\Throwable $th) {
+            request()->session()->flash('error', 'Tag Can\'t Deleted Successfully!');
+            return redirect(route('admin.tags.index'));
+        }
 
         request()->session()->flash('success', 'Tag Deleted Successfully!');
         return redirect(route('admin.tags.index'));
