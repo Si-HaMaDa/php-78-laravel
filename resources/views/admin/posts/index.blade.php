@@ -20,6 +20,8 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">User</th>
                     <th scope="col">Created At</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -29,6 +31,8 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
+                        <td>{{ $post->category->name }}</td>
+                        <td>{{ $post->user->name }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>
                             <a class="btn btn-sm btn-primary" href="{{ route('admin.posts.show', $post->id) }}">Show</a>

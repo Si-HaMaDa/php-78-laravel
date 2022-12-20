@@ -28,4 +28,20 @@ class Post extends Model
         'user_id',
         'cat_id',
     ];
+
+    /**
+     * Get the user that owns the post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the category that owns the comment.
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'cat_id');
+    }
 }

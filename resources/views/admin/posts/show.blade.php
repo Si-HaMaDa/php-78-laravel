@@ -30,12 +30,15 @@
             </div>
         </div>
         <div class="my-3">
-            <label>User ID:</label>
-            <p>{{ $post->user_id }}</p>
+            <label>User Name:</label>
+            <p>{{ $post->user->name }}</p>
         </div>
         <div class="my-3">
             <label>Category ID:</label>
-            <p>{{ $post->cat_id }}</p>
+            {{-- <p>{{ $post->category ? $post->category->name : 'No Category' }}</p> --}}
+            {{-- <p>{{ optional($post->category)->name }}</p> --}}
+            {{-- <p>{{ $post->category?->name }}</p> --}}
+            <p>{{ $post->category->name }}</p>
         </div>
         <div class="my-3">
             <label>Created At:</label>
