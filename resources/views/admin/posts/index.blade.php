@@ -46,4 +46,7 @@
         </table>
     </div>
 
+    <div class="paginate">
+        {{ $posts->links('pagination::bootstrap-5') }}
+    </div>
 @endsection
