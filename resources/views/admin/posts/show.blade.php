@@ -25,6 +25,7 @@
                 @if ($post->image && \Storage::exists($post->image))
                     <img src="{{ url('storage/' . $post->image) }}" alt="{{ $post->title }}" width="250">
                 @else
+                    <img src="{{ asset('assets/images/No_image_available.png') }}" alt="{{ $post->title }}" width="250">
                     <p>No Image</p>
                 @endif
             </div>

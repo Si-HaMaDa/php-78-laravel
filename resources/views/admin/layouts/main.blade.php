@@ -97,7 +97,7 @@
         </button>
         <form class="w-100" method="get">
             <input class="form-control form-control-dark w-100 rounded-0 border-0" name="search" type="text"
-                aria-label="Search" placeholder="Search" value="{{ request()->search }}">
+                value="{{ request()->search }}" aria-label="Search" placeholder="Search">
         </form>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
@@ -213,6 +213,8 @@
 
     @stack('footer')
     <script src="https://getbootstrap.com/docs/5.2/examples/dashboard/dashboard.js"></script>
+
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
 </html>
