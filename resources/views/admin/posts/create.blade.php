@@ -64,6 +64,17 @@
                     <div class="alert alert-danger my-1">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="my-3">
+                <select class="form-control" id="tags" name="tags[]" multiple>
+                    @foreach ($tags as $key => $value)
+                        <option value="{{ $key }}" @selected(in_array($key, (array) old('tags')))>{{ $value }}</option>
+                    @endforeach
+                </select>
+                <label for="tags">Tags</label>
+                @error('tags')
+                    <div class="alert alert-danger my-1">{{ $message }}</div>
+                @enderror
+            </div>
             <button class="w-100 btn btn-lg btn-primary" type="submit">Save</button>
         </form>
     </div>

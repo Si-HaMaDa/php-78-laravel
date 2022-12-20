@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -37,8 +38,9 @@ class PostController extends Controller
     {
         $users = User::pluck('name', 'id');
         $categories = Category::pluck('name', 'id');
+        $tags = Tag::pluck('name', 'id');
 
-        return view('admin.posts.create', compact('users', 'categories'));
+        return view('admin.posts.create', compact('users', 'categories', 'tags'));
     }
 
     /**
@@ -54,14 +56,20 @@ class PostController extends Controller
             'content' => 'required|max:1500',
             'image' => 'nullable|image',
             'user_id' => 'required|integer|exists:users,id',
-            'cat_id' => 'required|integer|exists:categories,id'
+            'cat_id' => 'required|integer|exists:categories,id',
+            'tags' => 'nullable|array',
+            'tags.*' => 'integer',
         ]);
 
         // $validated['image'] = Storage::putFile('posts', $validated['image']);
         if ($request->file('image'))
             $validated['image'] = $request->file('image')->store('posts');
 
-        Post::create($validated);
+        $post = Post::create($validated);
+
+        $post->tags()->sync($validated['tags']);
+
+        // $tag->posts()->sync("array of posts IDs")
 
         request()->session()->flash('success', 'Post Created Successfully!');
         return redirect(route('admin.posts.index'));

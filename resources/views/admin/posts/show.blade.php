@@ -41,6 +41,13 @@
             <p>{{ $post->category->name }}</p>
         </div>
         <div class="my-3">
+            <label>Tags:</label>
+            {{-- <p>{{ implode(', ', $post->tags->pluck('name')->toArray()) }}</p> --}}
+            @foreach ($post->tags as $tag)
+                <span>{{ $tag->name }}</span>
+            @endforeach
+        </div>
+        <div class="my-3">
             <label>Created At:</label>
             <p>{{ $post->created_at }}</p>
         </div>
